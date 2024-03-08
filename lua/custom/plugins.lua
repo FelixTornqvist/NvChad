@@ -66,7 +66,8 @@ local plugins = {
 
   {
     "sindrets/diffview.nvim",
-    event = "BufRead",
+    -- event = "BufRead",
+    event = "VeryLazy",
   },
 
   -- To make a plugin not be loaded

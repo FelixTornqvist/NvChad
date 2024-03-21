@@ -13,11 +13,19 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.omnisharp.setup {
-  cmd = { "dotnet", vim.fn.stdpath "data" .. "\\mason\\packages\\omnisharp\\libexec\\OmniSharp.dll" },
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+if vim.fn.has "win32" == 1 then
+  lspconfig.omnisharp.setup {
+    cmd = { "dotnet", vim.fn.stdpath "data" .. "\\mason\\packages\\omnisharp\\libexec\\OmniSharp.dll" },
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+else
+  lspconfig.omnisharp.setup {
+    cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
 
 lspconfig.stylelint_lsp.setup {
   on_attach = on_attach,

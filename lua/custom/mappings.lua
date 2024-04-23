@@ -1,3 +1,5 @@
+-- local cmp = require "cmp"
+
 ---@type MappingsTable
 local M = {}
 
@@ -22,6 +24,11 @@ M.general = {
   v = {
     [">"] = { ">gv", "indent" },
   },
+  -- i = {
+  --   ["<Tab>"] = cmp.confirm { select = true },
+  --   ["<C-j>"] = cmp.select_next_item(),
+  --   ["<C-k>"] = cmp.select_prev_item(),
+  -- },
 }
 
 -- more keybinds!
